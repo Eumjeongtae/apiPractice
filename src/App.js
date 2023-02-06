@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Routes, Route, Link } from 'react-router-dom'
+import axios from 'axios'
+import { useState } from 'react';
+
 
 function App() {
+
+  
+
+    
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Routes>
+          <Route path="/" element={
+            <>
+                <button onClick={()=>{
+      axios.get('https://codingapple1.github.io/shop/data2.json').then((결과)=>{
+        console.log(결과.data)
+      })
+      .catch(()=>{
+        console.log('실패함')
+      })
+    }}>버튼</button>
+            </> 
+            } /> 
+        </Routes>
     </div>
   );
 }
